@@ -1,40 +1,13 @@
-.main-layout .ant-menu-item {
-  height: 48px;
-  margin: 0;
-  font-size: 1rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border-radius: 0;
+/* Sidebar: small uppercase group labels and a brand-colored icon on the active page. */
+.sidebar-menu .ant-menu-item-group-title {
+  padding: 16px 20px 6px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.main-layout .ant-menu-item svg {
-  width: 20px;
-}
-
-.ant-menu-inline-collapsed .ant-menu-item-selected:before {
-  display: none;
-}
-
-.ant-menu-inline-collapsed .ant-menu-item {
-  padding-left: 28px !important;
-  width: 100%;
-}
-
-.ant-menu-inline-collapsed {
-  padding-right: 0 !important;
-}
-
-.ant-menu-inline-collapsed .ant-menu-item span {
-  display: none !important;
-}
-
-.ant-layout .ant-layout-sider .ant-layout-sider-children {
-  min-height: 500px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  row-gap: 50px !important;
+.sidebar-menu .ant-menu-item-selected .ant-menu-item-icon {
+  color: var(--color-primary);
 }
 
 .ant-pagination-item,

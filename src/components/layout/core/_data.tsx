@@ -1,35 +1,45 @@
+import { LuInbox, LuLayoutDashboard, LuMapPin, LuSettings, LuStore, LuUsers } from 'react-icons/lu';
+
 import { MenuProps } from 'antd';
 
+// Leaf keys are routes; items with `children` render as collapsible dropdowns.
 export const sidebarItems: MenuProps['items'] = [
   {
-    label: '',
-    key: 'SubMenu',
     type: 'group',
+    label: 'Overview',
+    children: [
+      { key: '/', label: 'Dashboard', icon: <LuLayoutDashboard /> },
+      { key: '/cities', label: 'Cities', icon: <LuMapPin /> },
+      { key: '/sales-agents', label: 'Sales Agents', icon: <LuUsers /> },
+    ],
+  },
+  {
+    type: 'group',
+    label: 'Management',
     children: [
       {
-        type: 'group',
-        label: 'Main',
+        key: 'vendors-menu',
+        label: 'Vendors',
+        icon: <LuStore />,
         children: [
-          { label: 'Dashboard', key: '/' },
-          { label: 'Cities', key: '/cities' },
-          { label: 'Sales Agents', key: '/sales-agents' },
-          { label: 'Vendors', key: '/vendors' },
-          { label: 'Vendor Onboarding', key: '/vendor-onboarding' },
+          { key: '/vendors', label: 'All Vendors' },
+          { key: '/vendor-onboarding', label: 'Onboarding' },
         ],
       },
       {
-        type: 'group',
-        label: 'Operations',
+        key: 'requests-menu',
+        label: 'Requests',
+        icon: <LuInbox />,
         children: [
-          { label: 'Requests', key: '/requests' },
-          { label: 'Reports & Analytics', key: '/requests-analytics' },
+          { key: '/requests', label: 'All Requests' },
+          { key: '/requests-analytics', label: 'Reports & Analytics' },
         ],
-      },
-      {
-        type: 'group',
-        label: 'System',
-        children: [{ label: 'Settings', key: '/settings' }],
       },
     ],
+  },
+  {
+    type: 'group',
+    label: 'System',
+    children: [{ key: '/settings', label: 'Settings', icon: <LuSettings /> }],
   },
 ];
