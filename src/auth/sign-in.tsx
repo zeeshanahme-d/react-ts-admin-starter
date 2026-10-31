@@ -93,6 +93,7 @@ function SignIn() {
               Login
             </Button>
           </Form>
+          <p className='mt-4 text-center text-xs! text-text-secondary'>Demo: admin@nearby.com / admin123</p>
         </Card>
       </div>
     </div>

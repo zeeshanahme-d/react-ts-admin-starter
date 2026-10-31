@@ -28,7 +28,8 @@
     "react-router-dom": "^7.10.1",
     "recharts": "^3.8.1",
     "tailwindcss": "^4.1.18",
-    "tw-classnames": "^1.0.6"
+    "tw-classnames": "^1.0.6",
+    "zustand": "^5.0.16"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.0.0",

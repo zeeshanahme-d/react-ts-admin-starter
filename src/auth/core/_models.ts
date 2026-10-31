@@ -1,23 +1,14 @@
-import { ID, ITimeStamps, Role } from 'helpers/crud-helper/models';
+import { ID, Role } from 'helpers/crud-helper/models';
 
-export interface IAuthModel {
-  api_token: string;
-}
-
-interface IAddress {
-  _id: string;
-}
-
-export interface IUserModel extends ITimeStamps {
+export interface IUserModel {
   _id: ID;
-  phoneNumber: string;
-  weeklyPreference: string;
-  balance: number;
+  name: string;
+  email: string;
   role: Role;
-  addresses: IAddress[];
+  avatar: string;
 }
 
 export interface ISignInForm {
-  email: number | string;
+  email: string;
   password: string;
 }

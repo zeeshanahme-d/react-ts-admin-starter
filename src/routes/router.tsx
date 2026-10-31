@@ -1,6 +1,7 @@
 import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
-import { AuthPage, SignOut, useAuth } from 'auth';
+import { AuthPage, SignOut } from 'auth';
+import { useSessionStore } from 'store/useSessionStore';
 
 import ErrorBoundary from 'routes/error-boundary';
 
@@ -8,7 +9,7 @@ import { PrivateRoutes } from './private-routes';
 import WithSuspense from './with-suspense';
 
 function AppRoutes() {
-  const { currentUser } = useAuth();
+  const currentUser = useSessionStore((s) => s.user);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route errorElement={<ErrorBoundary />}>

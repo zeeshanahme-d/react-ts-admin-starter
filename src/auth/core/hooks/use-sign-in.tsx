@@ -1,39 +1,22 @@
-import { useState } from 'react';
-
+import { useMutation } from '@tanstack/react-query';
 import { message } from 'antd';
+import { useSessionStore } from 'store/useSessionStore';
 
-import { ISignInForm, IUserModel } from '../_models';
-import { useAuth } from '../auth-context';
-
-// Dummy credentials for the demo login (no backend).
-export const DUMMY_CREDENTIALS = {
-  email: 'admin@nearby.com',
-  password: 'admin123',
-};
+import { login } from '../_requests';
 
 const useSignIn = () => {
-  const { saveAuth, setCurrentUser } = useAuth();
-  const [isPendingLogin, setIsPendingLogin] = useState(false);
+  const setSession = useSessionStore((s) => s.setSession);
 
-  const loginMutate = (values: ISignInForm) => {
-    setIsPendingLogin(true);
-    const email = String(values.email).trim().toLowerCase();
+  const { mutate: loginMutate, isPending: isPendingLogin } = useMutation({
+    mutationFn: login,
+    onSuccess: ({ token, user }) => {
+      setSession(token, user);
+      message.success(`Welcome back, ${user.name}`);
+    },
+    onError: (error) => message.error(error.message),
+  });
 
-    // Simulate a short async request so the button shows its loading state.
-    window.setTimeout(() => {
-      // Persist a lightweight session token (email encoded) to localStorage.
-      const token = `dummy.${window.btoa(email)}`;
-      saveAuth({ api_token: token });
-      setCurrentUser({ email } as unknown as IUserModel);
-      message.success('Logged in successfully.');
-      setIsPendingLogin(false);
-    }, 400);
-  };
-
-  return {
-    loginMutate,
-    isPendingLogin,
-  };
+  return { loginMutate, isPendingLogin };
 };
 
 export default useSignIn;
