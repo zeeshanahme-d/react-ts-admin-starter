@@ -1,12 +1,15 @@
 import { Button, Form, Input } from 'antd';
+import { useTheme } from 'store/useTheme';
 
 import Card from 'components/core-ui/card/card';
+import ThemeToggle from 'components/core-ui/theme-toggle/ThemeToggle';
 
 import { ISignInForm } from './core/_models';
 import useSignIn from './core/hooks/use-sign-in';
 
 function SignIn() {
   const { isPendingLogin, loginMutate } = useSignIn();
+  const isDark = useTheme((s) => s.theme === 'dark');
 
   const onFinish = (values: ISignInForm) => {
     loginMutate(values);
@@ -14,19 +17,24 @@ function SignIn() {
 
   return (
     <div
-      className='relative flex min-h-lvh items-center justify-center overflow-hidden bg-white px-4'
+      className='relative flex min-h-lvh items-center justify-center overflow-hidden bg-surface px-4'
       // style={{
       //   background:
       //     'radial-gradient(60% 50% at 20% 20%, rgb(246, 208, 255) 0%, rgba(246, 208, 255, 0) 60%), radial-gradient(60% 50% at 90% 90%, rgb(246, 208, 255) 0%, rgba(246, 208, 255, 0) 60%), rgb(255, 255, 255)',
       // }}
     >
+      <ThemeToggle className='absolute! right-4 top-4 z-20' />
       {/* Soft brand-tinted gradient blobs */}
       <div className='pointer-events-none absolute -left-10 -top-20 h-128 w-128 rounded-full bg-primary/10 blur-3xl' />
       <div className='pointer-events-none absolute -bottom-20 -right-10 h-128 w-128 rounded-full bg-primary/10 blur-3xl' />
       <div className='relative z-10 flex w-full max-w-sm flex-col items-center'>
         {/* Logo (same as sidebar) */}
         <div className='mb-10'>
-          <img src='/images/main-logo-dark.svg' alt='Logo' className='h-14 w-auto' />
+          <img
+            src={isDark ? '/images/main-logo.svg' : '/images/main-logo-dark.svg'}
+            alt='Logo'
+            className='h-14 w-auto'
+          />
         </div>
 
         {/* Login card */}

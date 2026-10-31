@@ -31,7 +31,7 @@ function StatCard({ label, value, badge, badgeVariant = 'positive', icon, classN
       {/* Top row: label + badge */}
       <div className='flex items-center justify-between gap-2'>
         <div className='flex items-center gap-1.5'>
-          {icon && <span className='text-[#7d859d] text-[14px] leading-none'>{icon}</span>}
+          {icon && <span className='text-text-secondary text-[14px] leading-none'>{icon}</span>}
           <span className='font-normal text-[12px] tracking-[-0.36px] leading-[1.11] text-text-secondary whitespace-nowrap'>
             {label}
           </span>
@@ -47,7 +47,7 @@ function StatCard({ label, value, badge, badgeVariant = 'positive', icon, classN
       </div>
 
       {/* Value */}
-      <p className='font-semibold text-2xl tracking-[-0.69px] leading-[1.11] text-[#1b1e28] whitespace-nowrap'>
+      <p className='font-semibold text-2xl tracking-[-0.69px] leading-[1.11] text-text-primary whitespace-nowrap'>
         {value}
       </p>
     </Card>

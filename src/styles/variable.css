@@ -25,4 +25,28 @@
   --color-danger-soft: #e8545b;
   --color-success: #16a34a;
   --color-info: #5395eb;
+
+  /* Card / header / panel background, and its hover state */
+  --color-surface: #fff;
+  --color-surface-hover: #eaecf0;
+}
+
+/* Set by store/useTheme.ts. Keep in sync with darkTokens in App.tsx. */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-background: #0f1117;
+  --color-forground: #1a1d26;
+  --color-background-hover: #44bd3226;
+  --color-foreground: #12141b;
+
+  --color-text-primary: #e6e8ef;
+  --color-text-secondary: #8b93a7;
+  --color-icon-primary: #b4bacb;
+
+  --color-border: #2a2e3a;
+  --color-card-border: #2a2e3a;
+
+  --color-surface: #161922;
+  --color-surface-hover: #262a36;
 }

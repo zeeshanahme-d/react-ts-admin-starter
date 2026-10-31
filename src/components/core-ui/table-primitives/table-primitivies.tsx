@@ -121,7 +121,7 @@ export function TableShell({ columns, children }: TableShellProps) {
     <div className='overflow-x-auto'>
       <table className='w-full min-w-312.5'>
         <thead>
-          <tr className='bg-[#f9fafb] border-b border-border'>
+          <tr className='bg-forground border-b border-border'>
             {columns.map((col) => (
               <th
                 key={col.key}

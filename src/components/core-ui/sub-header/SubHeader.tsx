@@ -44,8 +44,8 @@ const SubHeader = (props: SubHeaderProps) => {
             }}
             className='
               flex items-center justify-center rounded-sm
-              w-6.5 h-6.5 p-0 bg-white
-              hover:bg-[#eaecf0] transition-colors
+              w-6.5 h-6.5 p-0 bg-surface
+              hover:bg-surface-hover transition-colors
             '
           >
             <MdOutlineArrowBackIos className='text-text-primary' />

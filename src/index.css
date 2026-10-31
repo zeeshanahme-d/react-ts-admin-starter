@@ -65,6 +65,8 @@ p {
   --color-danger-soft: var(--color-danger-soft);
   --color-success: var(--color-success);
   --color-info: var(--color-info);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
 
   --radius-sm: 5px;
   /* Font Size */

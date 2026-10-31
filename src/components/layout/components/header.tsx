@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 
 import { Button, Flex, Layout } from 'antd';
 
+import ThemeToggle from 'components/core-ui/theme-toggle/ThemeToggle';
+
 import NotificationDrawer from './NotificationDrawer';
 
 // Page title shown in the header, keyed by the first path segment.
@@ -27,14 +29,14 @@ function Header({ collapsedStates }: any) {
   const pageTitle = PAGE_TITLES[pathname.split('/')[1] ?? ''] ?? 'Dashboard';
 
   return (
-    <Layout.Header className='p-0! bg-white h-17.5 border-b border-border'>
+    <Layout.Header className='p-0! bg-surface h-17.5 border-b border-border'>
       <Flex align='center' justify='space-between' className='h-full px-5'>
         <Flex align='center' gap={14}>
           <Button
             className='
               flex items-center justify-center rounded-sm
               w-7.5 h-7.5 p-0
-              hover:bg-[#eaecf0] text-icon-primary transition-colors
+              hover:bg-surface-hover text-icon-primary transition-colors
             '
             onClick={() => setCollapsed(!collapsed)}
           >
@@ -45,17 +47,18 @@ function Header({ collapsedStates }: any) {
         </Flex>
 
         <Flex align='center' gap={8}>
+          <ThemeToggle />
           <Button
             aria-label='Open notifications'
             onClick={() => setNotificationsOpen(true)}
             className='
               relative flex items-center justify-center rounded-sm
               w-7.5 h-7.5 p-0
-              hover:bg-[#eaecf0] transition-colors
+              hover:bg-surface-hover transition-colors
             '
           >
             <IoMdNotificationsOutline size={20} color='var(--color-text-secondary)' />
-            <span className='absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-danger border border-white' />
+            <span className='absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-danger border border-surface' />
           </Button>
         </Flex>
       </Flex>

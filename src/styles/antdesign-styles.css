@@ -50,7 +50,7 @@
   display: none !important;
 }
 .ant-form-item-label > label {
-  color: #7d859d !important;
+  color: var(--color-text-secondary) !important;
   font-size: var(--text-xs) !important;
 }
 .ant-btn {

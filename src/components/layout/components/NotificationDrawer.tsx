@@ -116,7 +116,7 @@ function NotificationDrawer({ open, onClose }: NotificationDrawerProps) {
       closable={false}
       mask
       maskClassName='backdrop-blur-[10px]'
-      className='[&_.ant-drawer-body]:p-0 [&_.ant-drawer-header]:hidden bg-white'
+      className='[&_.ant-drawer-body]:p-0 [&_.ant-drawer-header]:hidden bg-surface'
     >
       <div className='flex flex-col h-full'>
         {/* ── Header ──────────────────────────────────────────────────────── */}
@@ -144,7 +144,7 @@ function NotificationDrawer({ open, onClose }: NotificationDrawerProps) {
                 type='button'
                 onClick={() => setActiveTab(tab.value)}
                 className={`flex-1 py-1.5 text-center cursor-pointer rounded-md text-sm font-medium transition-colors ${
-                  activeTab === tab.value ? 'text-text-primary bg-white shadow-sm' : 'text-text-secondary'
+                  activeTab === tab.value ? 'text-text-primary bg-surface shadow-sm' : 'text-text-secondary'
                 }`}
               >
                 {tab.label}
@@ -170,7 +170,7 @@ function NotificationDrawer({ open, onClose }: NotificationDrawerProps) {
                   onClick={() => markAsRead(notification.id)}
                   className={`cursor-pointer rounded-lg border p-3 transition-colors ${
                     notification.isRead
-                      ? 'bg-white border-card-border hover:bg-background'
+                      ? 'bg-surface border-card-border hover:bg-background'
                       : 'bg-background-hover border-primary/30'
                   }`}
                 >

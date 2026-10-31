@@ -49,7 +49,7 @@ export default function DebouncedParamsSearch<T extends { [key: string]: any }>(
 
   return (
     <Input
-      prefix={<LuSearch size={18} color='#4C536B' className='mr-2' />}
+      prefix={<LuSearch size={18} color='var(--color-icon-primary)' className='mr-2' />}
       placeholder={placeholder}
       value={search}
       onChange={handleChange}

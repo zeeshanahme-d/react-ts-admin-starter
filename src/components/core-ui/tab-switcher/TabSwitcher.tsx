@@ -14,7 +14,7 @@ type TabSwitcherProps = {
 
 function TabSwitcher({ selectedTab, onSelectTab, tabs, className }: TabSwitcherProps) {
   return (
-    <div className={twc('flex items-center bg-[#f4f6f8] rounded-[160px] p-0.75 gap-0 h-7.25', className)}>
+    <div className={twc('flex items-center bg-background rounded-[160px] p-0.75 gap-0 h-7.25', className)}>
       {tabs.map((tab, index) => {
         const active = selectedTab === index;
         return (
@@ -24,7 +24,7 @@ function TabSwitcher({ selectedTab, onSelectTab, tabs, className }: TabSwitcherP
             onClick={() => onSelectTab(index)}
             className={twc(
               'flex items-center cursor-pointer gap-1.5 px-4 h-5.75 rounded-[50px] text-xs transition-all whitespace-nowrap',
-              active ? 'bg-white font-semibold text-text-primary shadow-sm' : 'font-normal text-text-secondary'
+              active ? 'bg-surface font-semibold text-text-primary shadow-sm' : 'font-normal text-text-secondary'
             )}
           >
             {tab.label}
@@ -32,7 +32,7 @@ function TabSwitcher({ selectedTab, onSelectTab, tabs, className }: TabSwitcherP
               <span
                 className={twc(
                   'inline-flex items-center justify-center min-w-4.5 h-4.5 px-1 rounded-full text-xxs font-medium transition-all',
-                  active ? 'bg-[#f4f6f8] text-text-primary' : 'bg-[#e5e7eb] text-text-secondary'
+                  active ? 'bg-background text-text-primary' : 'bg-border text-text-secondary'
                 )}
               >
                 {tab.count}
